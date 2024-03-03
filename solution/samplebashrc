@@ -1,14 +1,16 @@
-UNIQUEID=<your-unique-id>
+UNIQUEID=733fc7
 
 APPNAME=petclinic
 RESOURCE_GROUP=rg-$APPNAME-$UNIQUEID
-LOCATION=northeurope
+LOCATION=uksouth
 
 SPRING_APPS_SERVICE=sa-$APPNAME-$UNIQUEID
 az config set defaults.group=$RESOURCE_GROUP defaults.spring=$SPRING_APPS_SERVICE
 
-GIT_REPO=<your-gh-config-repo>
-GIT_USERNAME=<your-gh-username>
+
+GIT_REPO=https://github.com/jolguk/tflpetconfig.git
+GIT_USERNAME=jolguk
+GIT_PASSWORD=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
 
 API_GATEWAY=api-gateway
 ADMIN_SERVER=admin-server
