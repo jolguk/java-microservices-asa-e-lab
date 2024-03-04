@@ -1,3 +1,4 @@
+
 name: AzureSpringApps
 on: push
 env:
@@ -18,7 +19,8 @@ jobs:
           java-version: 1.8
 
       - name: maven build, clean
-        run: |
+        run: 
+          cd src
           mvn clean package
 
       - name: Login via Azure CLI
@@ -34,4 +36,4 @@ jobs:
           service-name: sa-petclinic-733fc7
           app-name: vets-service
           use-staging-deployment: false
-          package: ${{ env.ASC_PACKAGE_PATH }}/src/spring-petclinic-vets-service/**/*.jar
+          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
