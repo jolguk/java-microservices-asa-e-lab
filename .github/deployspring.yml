@@ -34,4 +34,4 @@ jobs:
           service-name: sa-petclinic-733fc7
           app-name: vets-service
           use-staging-deployment: false
-          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+          package: ${{ env.ASC_PACKAGE_PATH }}/src/spring-petclinic-vets-service/**/*.jar
