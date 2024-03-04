@@ -1,0 +1,28 @@
+name: AzureSpringApps
+on: push
+env:
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: f7f7f0b4-1299-429b-8927-12f2c5881db2
+
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    name: deploy to production with soruce code
+    steps:
+      - name: Checkout Github Action
+        uses: actions/checkout@v2
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: deploy to production step with soruce code
+        uses: azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: sa-petclinic-733fc7
+          app-name: visits-service
+          use-staging-deployment: false
+          package: ${{ env.ASC_PACKAGE_PATH }}
