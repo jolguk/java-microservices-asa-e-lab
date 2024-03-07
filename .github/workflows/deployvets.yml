@@ -1,5 +1,5 @@
 
-name: AzureSpringApps
+name: AzureSpringAppsj
 on: push
 env:
   ASC_PACKAGE_PATH: src/spring-petclinic-admin-server
